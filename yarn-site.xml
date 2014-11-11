@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+<configuration>
+
+  <property>
+    <description>Are acls enabled.</description>
+    <name>yarn.acl.enable</name>
+    <value>false</value>
+  </property>
+
+  <property>
+    <description>ACL of who can be admin of the YARN cluster.</description>
+    <name>yarn.admin.acl</name>
+    <value>*</value>
+  </property>
+
+  <property>
+    <description>Whether to enable log aggregation</description>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <description>The hostname of the RM.</description>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>10.21.139.23</value>
+  </property>
+
+  <property>
+    <description>The minimum allocation for every container request at the RM,
+    in MBs. Memory requests lower than this won't take effect,
+    and the specified value will get allocated at minimum.</description>
+    <name>yarn.scheduler.minimum-allocation-mb</name>
+    <value>1024</value>
+  </property>
+
+  <property>
+    <description>The maximum allocation for every container request at the RM,
+    in MBs. Memory requests higher than this won't take effect,
+    and will get capped to this value.</description>
+    <name>yarn.scheduler.maximum-allocation-mb</name>
+    <value>32766</value>
+  </property>
+
+  <property>
+    <description>Amount of physical memory, in MB, that can be allocated
+    for containers.</description>
+    <name>yarn.nodemanager.resource.memory-mb</name>
+    <value>49152</value>
+  </property>
+
+  <property>
+    <description>Ratio between virtual memory to physical memory when
+    setting memory limits for containers. Container allocations are
+    expressed in terms of physical memory, and virtual memory usage
+    is allowed to exceed this allocation by this ratio.
+    </description>
+    <name>yarn.nodemanager.vmem-pmem-ratio</name>
+    <value>2.1</value>
+  </property>
+
+  <property>
+    <description>Number of CPU cores that can be allocated
+    for containers.</description>
+    <name>yarn.nodemanager.resource.cpu-vcores</name>
+    <value>24</value>
+  </property>
+
+  <property>
+    <description>Ratio between virtual memory to physical memory when
+    setting memory limits for containers. Container allocations are
+    expressed in terms of physical memory, and virtual memory usage
+    is allowed to exceed this allocation by this ratio.
+    </description>
+    <name>yarn.nodemanager.vmem-pmem-ratio</name>
+    <value>2.1</value>
+  </property>
+
+  <property>
+    <description>the valid service name should only contain a-zA-Z0-9_ and can not start with numbers</description>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
+
+  <property>
+    <description>Path to file with nodes to include.</description>
+    <name>yarn.resourcemanager.nodes.include-path</name>
+    <value></value>
+  </property>
+
+  <property>
+    <description>Path to file with nodes to exclude.</description>
+    <name>yarn.resourcemanager.nodes.exclude-path</name>
+    <value></value>
+  </property>
+
+
+
+</configuration>

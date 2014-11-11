@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+<property>
+  <name>dfs.namenode.name.dir</name>
+  <value>/data/namenode</value>
+  <description>Determines where on the local filesystem the DFS name node
+      should store the name table(fsimage).  If this is a comma-delimited list
+      of directories then the name table is replicated in all of the
+      directories, for redundancy. </description>
+</property>
+
+<property>
+  <name>dfs.nameservices</name>
+  <value>datayes_prd_nn</value>
+  <description>
+    Comma-separated list of nameservices.
+  </description>
+</property>
+
+<property>
+  <name>dfs.ha.namenodes.datayes_prd_nn</name>
+  <value>nn1,nn2</value>
+</property>
+
+<property>
+  <name>dfs.namenode.rpc-address.datayes_prd_nn.nn1</name>
+  <value>sh-prd-hadoop-nn01:8020</value>
+</property>
+<property>
+  <name>dfs.namenode.rpc-address.datayes_prd_nn.nn2</name>
+  <value>sh-prd-hadoop-nn02:8020</value>
+</property>
+
+<property>
+  <name>dfs.namenode.http-address.datayes_prd_nn.nn1</name>
+  <value>sh-prd-hadoop-nn01:50070</value>
+</property>
+<property>
+  <name>dfs.namenode.http-address.datayes_prd_nn.nn2</name>
+  <value>sh-prd-hadoop-nn02:50070</value>
+</property>
+
+<property>
+  <name>dfs.namenode.shared.edits.dir</name>
+  <value>qjournal://sh-prd-hadoop-rm01:8485;sh-prd-hadoop-rm02:8485;sh-prd-hadoop-dn01:8485/datayes_prd_nn</value>
+</property>
+
+<property>
+  <name>dfs.client.failover.proxy.provider.mycluster</name>
+  <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+</property>
+
+<property>
+  <name>dfs.ha.fencing.methods</name>
+  <value>shell(/bin/true)</value>
+</property>
+
+<property>
+  <name>dfs.journalnode.edits.dir</name>
+  <value>/var/log/hadoop/journalnode</value>
+</property>
+
+<property>
+  <name>dfs.hosts</name>
+  <value>/etc/hadoop/slaves</value>
+  <description>Names a file that contains a list of hosts that are
+  permitted to connect to the namenode. The full pathname of the file
+  must be specified.  If the value is empty, all hosts are
+  permitted.</description>
+</property>
+
+<property>
+  <name>dfs.hosts.exclude</name>
+  <value>/etc/hadoop/excludes</value>
+  <description>Names a file that contains a list of hosts that are
+  not permitted to connect to the namenode.  The full pathname of the
+  file must be specified.  If the value is empty, no hosts are
+  excluded.</description>
+</property>
+
+<property>
+  <name>dfs.blocksize</name>
+  <value>268435456</value>
+  <description>
+      The default block size for new files, in bytes.
+      You can use the following suffix (case insensitive):
+      k(kilo), m(mega), g(giga), t(tera), p(peta), e(exa) to specify the size (such as 128k, 512m, 1g, etc.),
+      Or provide complete size in bytes (such as 134217728 for 128 MB).
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.handler.count</name>
+  <value>200</value>
+  <description>The number of server threads for the namenode.</description>
+</property>
+
+<property>
+  <name>dfs.datanode.data.dir</name>
+  <value>/data01,/data02,/data03,/data04,/data05,/data06,/data07,/data08,/data09,/data10</value>
+  <description>Determines where on the local filesystem an DFS data node
+  should store its blocks.  If this is a comma-delimited
+  list of directories, then data will be stored in all named
+  directories, typically on different devices.
+  Directories that do not exist are ignored.
+  </description>
+</property>
+
+<property>
+  <name>dfs.permissions</name>
+  <value>true</value>
+  <description>
+  If "true", enable permission checking in HDFS.
+  If "false", permission checking is turned off,
+  but all other behavior is unchanged.
+  Switching from one parameter value to the other does not change the mode,
+  owner or group of files or directories.
+  </description>
+</property>
+
+
+</configuration>
